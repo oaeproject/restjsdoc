@@ -21,7 +21,6 @@
     }
   ],
   "dependencies": {
-    "esprima": "latest",
     "jison": "latest",
     "underscore": "latest"
   },
