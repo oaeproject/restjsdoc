@@ -24,10 +24,13 @@
     "jison": "latest",
     "underscore": "latest"
   },
+  "devDependencies": {
+    "mocha": "latest"
+  },
   "engines": {
     "node": ">=0.10"
   },
   "scripts": {
-    "test": "grunt"
+    "test": "mocha"
   }
 }
