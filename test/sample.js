@@ -30,7 +30,7 @@ var someCode = function() {
  * @server     localhost
  * @method     POST
  * @path       /api/test/{var}
- * @pathParam  {string}            var         A path parameter
+ * @pathParam  {string}            var         A path parameter  [choice1, choice2]
  * @bodyParam  {string}            var2        A body parameter
  * @queryParam {number}            var3        A query parameter
  * @queryParam  {string} !required  var4        A required query parameter

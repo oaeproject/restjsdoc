@@ -80,9 +80,9 @@ description
 
 enum
   : ENUM
-    {$$ = $1.substr(1, $1.length - 2).split(',');}
+    {$$ = '["' + $1.substr(1, $1.length - 2).split(', ').join('", "') + '"]';}
   |
-    {$$ = '';}
+    {$$ = '[]';}
   ;
 
 method
@@ -121,12 +121,12 @@ multipleparam
 
 pathparam
   : PATHPARAM WORD WORD phrase enum NEWLINE
-    {$$ = '{"pathParam": {"name": "' + $3 + '", "type": "' + $2.substr(1, $2.length - 2) + '", "description": "' + $4 + '", "validValues": "' + $5 + '"}}';}
+    {$$ = '{"pathParam": {"name": "' + $3 + '", "type": "' + $2.substr(1, $2.length - 2) + '", "description": "' + $4 + '", "validValues": ' + $5 + '}}';}
   ;
 
 queryparam
   : QUERYPARAM WORD requiredparam multipleparam WORD phrase enum NEWLINE
-    {$$ = '{"queryParam": {"name": "' + $5 + '", "type": "' + $2.substr(1, $2.length - 2) + '", "required": ' + $3 + ', "multiple": ' + $4 + ', "description": "' + $6 + '", "validValues": "' + $7 + '"}}';}
+    {$$ = '{"queryParam": {"name": "' + $5 + '", "type": "' + $2.substr(1, $2.length - 2) + '", "required": ' + $3 + ', "multiple": ' + $4 + ', "description": "' + $6 + '", "validValues": ' + $7 + '}}';}
   ;
 
 bodyparam
