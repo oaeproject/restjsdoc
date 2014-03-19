@@ -8,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/stuartf/restjsdoc.git"
+    "url": "git://github.com/oaeproject/restjsdoc.git"
   },
   "bugs": {
-    "url": "https://github.com/stuartf/restjsdoc/issues"
+    "url": "https://github.com/oaeproject/restjsdoc/issues"
   },
   "main": "./lib/restjsdoc",
   "licenses": [
