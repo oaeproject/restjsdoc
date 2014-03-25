@@ -16,19 +16,19 @@
 \[[^\]]+\]            return 'ENUM';
 "@RESTModel"          return 'RESTMODEL';
 "@REST"               return 'ENDPOINT';
-"@method"             return 'METHOD';
-"@pathParam"          return 'PATHPARAM';
-"@queryParam"         return 'QUERYPARAM';
-"@bodyParam"          return 'BODYPARAM';
-"@formParam"          return 'FORMPARAM';
-"@headerParam"        return 'HEADERPARAM';
-"@path"               return 'PATH';
-"@return"             return 'RETURN';
-"@server"             return 'SERVER';
-"@required"           return 'REQUIRED';
-"@property"           return 'PROPERTY';
-"!required"           return 'REQUIREDPARAM';
-"!multiple"           return 'MULTIPLEPARAM';
+"@Method"             return 'METHOD';
+"@PathParam"          return 'PATHPARAM';
+"@QueryParam"         return 'QUERYPARAM';
+"@BodyParam"          return 'BODYPARAM';
+"@FormParam"          return 'FORMPARAM';
+"@HeaderParam"        return 'HEADERPARAM';
+"@Path"               return 'PATH';
+"@Return"             return 'RETURN';
+"@Server"             return 'SERVER';
+"@Required"           return 'REQUIRED';
+"@Property"           return 'PROPERTY';
+"!Required"           return 'REQUIREDPARAM';
+"!Multiple"           return 'MULTIPLEPARAM';
 \S+                   return 'WORD';
 <<EOF>>               return 'EOF';
 
@@ -173,10 +173,8 @@ tags
   ;
 
 required
-  : REQUIRED phrase NEWLINE
-    {$$ = '"required": ["' + $2.split(' ').join('", "') + '"]';}
-  |
-    {$$ = '"required": []';}
+  : REQUIRED enum NEWLINE
+    {$$ = '"required": ' + $2;}
   ;
 
 property
