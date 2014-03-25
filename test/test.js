@@ -93,7 +93,7 @@ describe('Model parsing', function() {
     var models = restjsdoc.parse(doc).models;
 
     it('should see all model blocks', function() {
-        assert.equal(_.size(models), 1);
+        assert.equal(_.size(models), 2);
     });
 
     it('should properly parse the "required" array', function() {

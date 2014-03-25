@@ -1,6 +1,7 @@
 /**
  * @REST getTest
  * Some test documentation
+ * This description can be multi-line
  *
  * @Method     GET
  * @Path       /api/test/{var}
@@ -13,6 +14,15 @@ var someCode = function() {
 
 /**
  * @RESTModel test
+ *
+ * @Required   [test, num]
+ * @Property   {string}             test          A property
+ * @Property   {number}             num
+ */
+
+/**
+ * @RESTModel test2
+ * Models can have a description as well
  *
  * @Required   [test, num]
  * @Property   {string}             test          A property

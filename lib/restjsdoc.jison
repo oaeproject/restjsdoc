@@ -73,14 +73,21 @@ phrase
 
 description
   : phrase NEWLINE
-    {$$ = '"description": "' + $1 + '"';}
+    {$$ = '"description": "' + yy.jsonEscape($1) + '"';}
   | NEWLINE
     {$$ = '"description": ""';}
   ;
 
+multilinedesc
+  : phrase NEWLINE
+  | multilinedesc phrase NEWLINE
+  | multilinedesc NEWLINE
+  | NEWLINE
+  ;
+
 enum
   : ENUM
-    {$$ = '["' + $1.substr(1, $1.length - 2).split(', ').join('", "') + '"]';}
+    {$$ = '["' + $1.substr(1, $1.length - 2).split(/,\s*/).join('", "') + '"]';}
   |
     {$$ = '[]';}
   ;
@@ -189,13 +196,13 @@ properties
   ;
 
 endpointblock
-  : COMMENTSTART NEWLINE endpoint description NEWLINE tags COMMENTEND
-    {$$ = '{' + $3 + ', ' + $4 + ', "tags": [' + $6 + ']}';}
+  : COMMENTSTART NEWLINE endpoint multilinedesc tags COMMENTEND
+    {$$ = '{' + $3 + ', "description": "' + yy.jsonEscape($4) + '", "tags": [' + $5 + ']}';}
   ;
 
 modelblock
-  : COMMENTSTART NEWLINE restmodel NEWLINE required properties COMMENTEND
-    {$$ = '{' + $3 + ', ' + $5 + ', "properties": [' + $6 + ']}';}
+  : COMMENTSTART NEWLINE restmodel multilinedesc required properties COMMENTEND
+    {$$ = '{' + $3 + ', "description": "' + yy.jsonEscape($4) + '", ' + $5 + ', "properties": [' + $6 + ']}';}
   ;
 
 commentcontent
