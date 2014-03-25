@@ -31,6 +31,11 @@ describe('Endpoint parsing', function() {
         assert.equal(endpoints.fullyPopulated.server, 'localhost');
     });
 
+    it('should properly parse endpoint descriptions', function() {
+        assert.equal(endpoints.getTest.description, 'Some test documentation\nThis description can be multi-line\n\n');
+        assert.equal(endpoints.fullyPopulated.description, 'An endpoint that uses every possible tag type (some more than once!)\n\n');
+    });
+
     it('should properly parse method tags', function() {
         assert.equal(endpoints.getTest.method, 'GET');
         assert.equal(endpoints.fullyPopulated.method, 'POST');

@@ -80,9 +80,13 @@ description
 
 multilinedesc
   : phrase NEWLINE
+    {$$ = $1 + $2;}
   | multilinedesc phrase NEWLINE
+    {$$ = $1 + $2 + $3;}
   | multilinedesc NEWLINE
+    {$$ = $1 + $2;}
   | NEWLINE
+    {$$ = $1;}
   ;
 
 enum
