@@ -8,7 +8,7 @@
  * @PathParam  {string}              var          A variable
  * @Return     {string}                           The result
  */
-var someCode = function() {
+var someCode = function(/* comment */) {
     // This js code should be ignored by the parser
     var arr = []/* inline block comment also ignored*/;
 };
