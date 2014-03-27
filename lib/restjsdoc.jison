@@ -10,8 +10,8 @@
 
 \n\r|\r\n|[\n\r]      return 'NEWLINE';
 \s+                   /* skip whitespace */;
-"/*".*                return 'COMMENTSTART';
-.*"*/"                return 'COMMENTEND';
+"/*"                  return 'COMMENTSTART';
+"*/"                  return 'COMMENTEND';
 ^\s*"*"               /* skip * at start of line */;
 \[[^\]]+\]            return 'ENUM';
 "@RESTModel"          return 'RESTMODEL';

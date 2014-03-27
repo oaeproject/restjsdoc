@@ -10,7 +10,7 @@
  */
 var someCode = function() {
     // This js code should be ignored by the parser
-    var arr = [];
+    var arr = []/* inline block comment also ignored*/;
 };
 
 /**
