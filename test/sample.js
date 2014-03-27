@@ -31,6 +31,7 @@ var someCode = function() {
 
 /**
  * A block comment that doesn't have the REST tag won't be parsed
+ * and can contain an [enum]
  */
 
 /**

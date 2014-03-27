@@ -214,6 +214,7 @@ commentcontent
   | NEWLINE
   | commentcontent WORD
   | commentcontent NEWLINE
+  | commentcontent ENUM
   ;
 
 comment
