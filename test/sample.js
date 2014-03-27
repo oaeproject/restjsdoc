@@ -10,6 +10,7 @@
  */
 var someCode = function() {
     // This js code should be ignored by the parser
+    var arr = [];
 };
 
 /**
