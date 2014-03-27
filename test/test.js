@@ -10,6 +10,9 @@ describe('Type conversion', function() {
     it('should handle strings', function() {
         var result = restjsdoc.parse(doc.toString());
         assert.ok(result);
+        // and the empty string
+        result = restjsdoc.parse('');
+        assert.ok(result);
     });
 
     it('should handle buffers', function() {
