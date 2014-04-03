@@ -56,10 +56,6 @@ expression
     {yy.endpoints.push(JSON.parse($1));}
   | modelblock
     {yy.models.push(JSON.parse($1));}
-  | WORD
-    {$$ = '';}
-  | ENUM
-    {$$ = '';}
   | comment
     {$$ = '';}
   | NEWLINE
