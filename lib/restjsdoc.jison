@@ -8,11 +8,10 @@
 
 %%
 
+[ \f\t\v\u00a0\u1680\u180e\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u2028\u2029\u202f\u205f\u3000] /*   skip non linebreaking whitespace */;
 \n\r|\r\n|[\n\r]      return 'NEWLINE';
-\s+                   /* skip whitespace */;
-.*"/*"                  return 'COMMENTSTART';
-.*"*/"                  return 'COMMENTEND';
-^\s*"*"               /* skip * at start of line */;
+"/*"                  return 'COMMENTSTART';
+"*/"                  return 'COMMENTEND';
 \[[^\]]+\]            return 'ENUM';
 "@RESTModel"          return 'RESTMODEL';
 "@REST"               return 'ENDPOINT';
@@ -209,6 +208,7 @@ modelblock
 
 commentcontent
   : WORD
+  | ENUM
   | NEWLINE
   | commentcontent WORD
   | commentcontent NEWLINE
