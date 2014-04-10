@@ -35,8 +35,8 @@ describe('Endpoint parsing', function() {
     });
 
     it('should properly parse endpoint descriptions', function() {
-        assert.equal(endpoints.getTest.description, 'Some test documentation\nThis description can be multi-line\n\n');
-        assert.equal(endpoints.fullyPopulated.description, 'An endpoint that uses every possible tag type (some more than once!)\n\n');
+        assert.equal(endpoints.getTest.description, 'Some test documentation\nThis description can be multi-line');
+        assert.equal(endpoints.fullyPopulated.description, 'An endpoint that uses every possible tag type (some more than once!)');
     });
 
     it('should properly parse method tags', function() {

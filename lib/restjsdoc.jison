@@ -154,7 +154,7 @@ headerparam
 
 return
   : RETURN WORD description
-    {$$ = '{"return": {"type": "' + $2 + '", ' + $3 + '}}';}
+    {$$ = '{"return": {"type": "' + $2.substr(1, $2.length - 2) + '", ' + $3 + '}}';}
   ;
 
 server
