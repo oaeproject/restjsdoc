@@ -90,7 +90,7 @@ enum
   : ENUM
     {$$ = '["' + $1.substr(1, $1.length - 2).split(/,\s*/).join('", "') + '"]';}
   |
-    {$$ = '[]';}
+    {$$ = 'null';}
   ;
 
 method
