@@ -37,6 +37,7 @@ var someCode = function(/* comment */) {
 
 /**
  * @REST fullyPopulated
+ *
  * An endpoint that uses every possible tag type (some more than once!)
  *
  * @Server     localhost
