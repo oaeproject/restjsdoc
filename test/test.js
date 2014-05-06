@@ -73,25 +73,16 @@ describe('Endpoint parsing', function() {
         assert.equal(endpoints.fullyPopulated.queryParams['var4'].description, 'A required query parameter');
         assert.ok(endpoints.fullyPopulated.queryParams['var4'].required);
         assert.ok(!endpoints.fullyPopulated.queryParams['var4'].multiple);
-        assert.equal(endpoints.fullyPopulated.queryParams['var5'].type, 'string');
-        assert.equal(endpoints.fullyPopulated.queryParams['var5'].description, 'A query parameter that can appear multiple times');
-        assert.ok(!endpoints.fullyPopulated.queryParams['var5'].required);
-        assert.ok(endpoints.fullyPopulated.queryParams['var5'].multiple);
-        assert.equal(endpoints.fullyPopulated.queryParams['var6'].type, 'string');
-        assert.equal(endpoints.fullyPopulated.queryParams['var6'].description, 'A required query parameter that can appear multiple times');
-        assert.ok(endpoints.fullyPopulated.queryParams['var6'].required);
-        assert.ok(endpoints.fullyPopulated.queryParams['var6'].multiple);
-
     });
 
     it('should properly parse headerParameter tags ', function() {
-        assert.equal(endpoints.fullyPopulated.headerParams['var7'].type, 'string');
-        assert.equal(endpoints.fullyPopulated.headerParams['var7'].description, 'A header parameter');
+        assert.equal(endpoints.fullyPopulated.headerParams['var5'].type, 'string');
+        assert.equal(endpoints.fullyPopulated.headerParams['var5'].description, 'A header parameter');
     });
 
     it('should properly parse formParameter tags ', function() {
-        assert.equal(endpoints.fullyPopulated.formParams['var8'].type, 'string');
-        assert.equal(endpoints.fullyPopulated.formParams['var8'].description, 'A form parameter');
+        assert.equal(endpoints.fullyPopulated.formParams['var6'].type, 'string');
+        assert.equal(endpoints.fullyPopulated.formParams['var6'].description, 'A form parameter');
     });
 
 });

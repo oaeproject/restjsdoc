@@ -47,8 +47,6 @@ var someCode = function(/* comment */) {
  * @BodyParam   {string}            var2    A body parameter
  * @QueryParam  {number}            [var3]  A query parameter
  * @QueryParam  {string}            var4    A required query parameter
- * @QueryParam  {string} !Multiple  [var5]  A query parameter that can appear multiple times
- * @QueryParam  {string} !Multiple  var6    A required query parameter that can appear multiple times
- * @HeaderParam {string}            var7    A header parameter
- * @FormParam   {string}            var8    A form parameter
+ * @HeaderParam {string}            var5    A header parameter
+ * @FormParam   {string}            var6    A form parameter
  */
