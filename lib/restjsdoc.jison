@@ -26,7 +26,6 @@
 "@Server"             return 'SERVER';
 "@Required"           return 'REQUIRED';
 "@Property"           return 'PROPERTY';
-"!Required"           return 'REQUIREDPARAM';
 "!Multiple"           return 'MULTIPLEPARAM';
 \S+                   return 'WORD';
 <<EOF>>               return 'EOF';
@@ -113,11 +112,9 @@ path
     {$$ = '{"path": "' + $2 + '"}';}
   ;
 
-requiredparam
-  : REQUIREDPARAM
-    {$$ = true;}
-  |
-    {$$ = false;}
+optionalparam
+  : ENUM
+    {$$ = $1.substr(1, $1.length - 2);}
   ;
 
 multipleparam
@@ -133,8 +130,10 @@ pathparam
   ;
 
 queryparam
-  : QUERYPARAM WORD requiredparam multipleparam WORD phrase enum NEWLINE
-    {$$ = '{"queryParam": {"name": "' + $5 + '", "type": "' + $2.substr(1, $2.length - 2) + '", "required": ' + $3 + ', "multiple": ' + $4 + ', "description": "' + $6 + '", "validValues": ' + $7 + '}}';}
+  : QUERYPARAM WORD multipleparam WORD phrase enum NEWLINE
+    {$$ = '{"queryParam": {"name": "' + $4 + '", "type": "' + $2.substr(1, $2.length - 2) + '", "required": true, "multiple": ' + $3 + ', "description": "' + $5 + '", "validValues": ' + $6 + '}}';}
+  | QUERYPARAM WORD multipleparam optionalparam phrase enum NEWLINE
+    {$$ = '{"queryParam": {"name": "' + $4 + '", "type": "' + $2.substr(1, $2.length - 2) + '", "required": false, "multiple": ' + $3 + ', "description": "' + $5 + '", "validValues": ' + $6 + '}}';}
   ;
 
 bodyparam
@@ -148,8 +147,10 @@ formparam
   ;
 
 headerparam
-  : HEADERPARAM WORD requiredparam WORD description
-    {$$ = '{"headerParam": {"name": "' + $4 + '", "type": "' + $2.substr(1, $2.length - 2) + '", "required": ' + $3 + ', ' + $5 + '}}';}
+  : HEADERPARAM WORD WORD description
+    {$$ = '{"headerParam": {"name": "' + $3 + '", "type": "' + $2.substr(1, $2.length - 2) + '", "required": true, ' + $4 + '}}';}
+  | HEADERPARAM WORD optionalparam description
+    {$$ = '{"headerParam": {"name": "' + $3 + '", "type": "' + $2.substr(1, $2.length - 2) + '", "required": false, ' + $4 + '}}';}
   ;
 
 return
