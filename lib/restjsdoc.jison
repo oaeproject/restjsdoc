@@ -12,7 +12,7 @@
 \n\r|\r\n|[\n\r]      return 'NEWLINE';
 "/*"                  return 'COMMENTSTART';
 "*/"                  return 'COMMENTEND';
-\[[^\]]+\]            return 'ENUM';
+\[[^\]]*\]            return 'ENUM';
 "@RESTModel"          return 'RESTMODEL';
 "@REST"               return 'ENDPOINT';
 "@Method"             return 'METHOD';
@@ -86,7 +86,7 @@ multilinedesc
 
 enum
   : ENUM
-    {$$ = '["' + $1.substr(1, $1.length - 2).split(/,\s*/).join('", "') + '"]';}
+    {$$ = $1 === '[]' ? $1 : '["' + $1.substr(1, $1.length - 2).split(/,\s*/).join('", "') + '"]';}
   |
     {$$ = 'null';}
   ;
