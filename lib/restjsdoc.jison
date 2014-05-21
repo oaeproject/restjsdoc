@@ -26,6 +26,7 @@
 "@Server"             return 'SERVER';
 "@Required"           return 'REQUIRED';
 "@Property"           return 'PROPERTY';
+"@HttpResponse"       return 'HTTPRESP';
 \S+                   return 'WORD';
 <<EOF>>               return 'EOF';
 
@@ -155,6 +156,11 @@ server
     {$$ = '{"server": "' + $2 + '"}';}
   ;
 
+httpresponse
+  : HTTPRESP WORD description
+    {$$ = '{"httpResponse": {"code": "' + $2 + '", ' + $3 + '}}';}
+  ;
+
 tag
   : method
   | path
@@ -165,6 +171,7 @@ tag
   | headerparam
   | return
   | server
+  | httpresponse
   ;
 
 tags

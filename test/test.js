@@ -85,6 +85,11 @@ describe('Endpoint parsing', function() {
         assert.equal(endpoints.fullyPopulated.formParams['var6'].description, 'A form parameter');
     });
 
+    it('should properly parse httpResponse tags ', function() {
+        assert.equal(endpoints.fullyPopulated.httpResponses['404'].code, '404');
+        assert.equal(endpoints.fullyPopulated.httpResponses['404'].description, 'Custom http response message');
+    });
+
 });
 
 describe('Model parsing', function() {
