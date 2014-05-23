@@ -18,7 +18,7 @@ var someCode = function(/* comment */) {
  *
  * @Required    [test, num]
  * @Property    {string}        test    A property
- * @Property    {number}        num
+ * @Property    {number}        num     Another property
  */
 
 /**
@@ -26,8 +26,8 @@ var someCode = function(/* comment */) {
  * Models can have a description as well
  *
  * @Required    [test, num]
- * @Property    {string}        test    A property
- * @Property    {number}        num
+ * @Property    {string}        test    A property  [foo, bar]
+ * @Property    {number}        num     Another property
  */
 
 /**

@@ -109,7 +109,9 @@ describe('Model parsing', function() {
         assert.equal(models.test.properties.test.type, 'string');
         assert.equal(models.test.properties.test.description, 'A property');
         assert.equal(models.test.properties.num.type, 'number');
-        assert.equal(models.test.properties.num.description, '');
+        assert.equal(models.test.properties.num.description, 'Another property');
+        assert.ok(_.contains(models.test2.properties.test.validValues, 'foo'));
+        assert.ok(_.contains(models.test2.properties.test.validValues, 'bar'));
     });
 
 });

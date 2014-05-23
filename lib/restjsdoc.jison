@@ -186,8 +186,8 @@ required
   ;
 
 property
-  : PROPERTY WORD WORD description
-    {$$ = '{"name": "' + $3 + '", "type": "' + $2.substr(1, $2.length - 2) + '", ' + $4 + '}';}
+  : PROPERTY WORD WORD phrase enum NEWLINE
+    {$$ = '{"name": "' + $3 + '", "type": "' + $2.substr(1, $2.length - 2) + '", "description": "' + $4 + '", "validValues": ' + $5 +'}';}
   ;
 
 properties
