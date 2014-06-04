@@ -23,7 +23,7 @@ describe('Type conversion', function() {
 
 describe('Endpoint parsing', function() {
 
-    var endpoints = restjsdoc.parse(doc).endpoints;
+    var endpoints = _.indexBy(restjsdoc.parse(doc).endpoints, 'nickname');
 
     it('should see all endpoint blocks', function() {
         assert.equal(_.size(endpoints), 2);
