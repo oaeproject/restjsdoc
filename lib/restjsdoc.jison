@@ -62,14 +62,14 @@ expression
 
 phrase
   : WORD
-    {$$ = $1;}
+    {$$ = yy.jsonEscape($1);}
   | phrase WORD
-    {$$ = $1 + ' ' + $2;}
+    {$$ = $1 + ' ' + yy.jsonEscape($2);}
   ;
 
 description
   : phrase NEWLINE
-    {$$ = '"description": "' + yy.jsonEscape($1) + '"';}
+    {$$ = '"description": "' + $1 + '"';}
   | NEWLINE
     {$$ = '"description": ""';}
   ;

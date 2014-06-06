@@ -26,8 +26,8 @@ var someCode = function(/* comment */) {
  * Models can have a description as well
  *
  * @Required    [test, num]
- * @Property    {string}        test    A property  [foo, bar]
- * @Property    {number}        num     Another property
+ * @Property    {string}        test    A property "can contain quotes" [foo, bar]
+ * @Property    {number}        num     Another property "here too"
  */
 
 /**
