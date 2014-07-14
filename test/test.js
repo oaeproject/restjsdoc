@@ -90,6 +90,9 @@ describe('Endpoint parsing', function() {
         assert.equal(endpoints.fullyPopulated.httpResponses['404'].description, 'Custom http response message');
     });
 
+    it('should properly parse api tags ', function() {
+        assert.equal(endpoints.fullyPopulated.api, 'private');
+    });
 });
 
 describe('Model parsing', function() {

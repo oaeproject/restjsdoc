@@ -27,6 +27,7 @@
 "@Required"           return 'REQUIRED';
 "@Property"           return 'PROPERTY';
 "@HttpResponse"       return 'HTTPRESP';
+"@Api"                return 'API';
 \S+                   return 'WORD';
 <<EOF>>               return 'EOF';
 
@@ -161,6 +162,11 @@ httpresponse
     {$$ = '{"httpResponse": {"code": "' + $2 + '", ' + $3 + '}}';}
   ;
 
+api
+  : API WORD NEWLINE
+    {$$ = '{"api": "' + $2 + '"}';}
+  ;
+
 tag
   : method
   | path
@@ -172,6 +178,7 @@ tag
   | return
   | server
   | httpresponse
+  | api
   ;
 
 tags

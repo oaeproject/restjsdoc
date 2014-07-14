@@ -50,4 +50,5 @@ var someCode = function(/* comment */) {
  * @HeaderParam {string}            var5    A header parameter
  * @FormParam   {string}            var6    A form parameter
  * @HttpResponse                    404     Custom http response message
+ * @Api private
  */
