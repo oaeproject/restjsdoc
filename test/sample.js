@@ -49,6 +49,7 @@ var someCode = function(/* comment */) {
  * @QueryParam  {string}            var4    A required query parameter
  * @HeaderParam {string}            var5    A header parameter
  * @FormParam   {string}            var6    A form parameter
+ * @FormParam   {string}            [var7]  An optional form parameter
  * @HttpResponse                    404     Custom http response message
  * @Api private
  */

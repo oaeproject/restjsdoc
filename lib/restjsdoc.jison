@@ -137,7 +137,9 @@ bodyparam
 
 formparam
   : FORMPARAM WORD WORD description
-    {$$ = '{"formParam": {"name": "' + $3 + '", "type": "' + $2.substr(1, $2.length - 2) + '", ' + $4 + '}}';}
+    {$$ = '{"formParam": {"name": "' + $3 + '", "type": "' + $2.substr(1, $2.length - 2) + '", "required": true, ' + $4 + '}}';}
+  | FORMPARAM WORD optionalparam description
+    {$$ = '{"formParam": {"name": "' + $3 + '", "type": "' + $2.substr(1, $2.length - 2) + '", "required": false, ' + $4 + '}}';}
   ;
 
 headerparam

@@ -83,6 +83,11 @@ describe('Endpoint parsing', function() {
     it('should properly parse formParameter tags ', function() {
         assert.equal(endpoints.fullyPopulated.formParams['var6'].type, 'string');
         assert.equal(endpoints.fullyPopulated.formParams['var6'].description, 'A form parameter');
+        assert.ok(endpoints.fullyPopulated.formParams['var6'].required);
+        assert.equal(endpoints.fullyPopulated.formParams['var7'].type, 'string');
+        assert.equal(endpoints.fullyPopulated.formParams['var7'].description, 'An optional form parameter');
+        assert.ok(!endpoints.fullyPopulated.formParams['var7'].required);
+
     });
 
     it('should properly parse httpResponse tags ', function() {
