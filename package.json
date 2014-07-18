@@ -21,9 +21,9 @@
     }
   ],
   "dependencies": {
-    "esprima": "latest",
-    "jison": "latest",
-    "underscore": "1.5.2"
+    "esprima": "~1.2",
+    "jison": "~0.4",
+    "underscore": "~1.6"
   },
   "devDependencies": {
     "mocha": "latest"
