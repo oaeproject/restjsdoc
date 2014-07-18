@@ -87,6 +87,8 @@ describe('Endpoint parsing', function() {
         assert.equal(endpoints.fullyPopulated.formParams['var7'].type, 'string');
         assert.equal(endpoints.fullyPopulated.formParams['var7'].description, 'An optional form parameter');
         assert.ok(!endpoints.fullyPopulated.formParams['var7'].required);
+        assert.ok(_.contains(endpoints.fullyPopulated.formParams['var7'].validValues, 'choice1'));
+        assert.ok(_.contains(endpoints.fullyPopulated.formParams['var7'].validValues, 'choice2'));
 
     });
 

@@ -136,10 +136,10 @@ bodyparam
   ;
 
 formparam
-  : FORMPARAM WORD WORD description
-    {$$ = '{"formParam": {"name": "' + $3 + '", "type": "' + $2.substr(1, $2.length - 2) + '", "required": true, ' + $4 + '}}';}
-  | FORMPARAM WORD optionalparam description
-    {$$ = '{"formParam": {"name": "' + $3 + '", "type": "' + $2.substr(1, $2.length - 2) + '", "required": false, ' + $4 + '}}';}
+  : FORMPARAM WORD WORD phrase enum NEWLINE
+    {$$ = '{"formParam": {"name": "' + $3 + '", "type": "' + $2.substr(1, $2.length - 2) + '", "required": true, "description": "' + $4 + '", "validValues": ' + $5 + '}}';}
+  | FORMPARAM WORD optionalparam phrase enum NEWLINE
+    {$$ = '{"formParam": {"name": "' + $3 + '", "type": "' + $2.substr(1, $2.length - 2) + '", "required": false, "description": "' + $4 + '", "validValues": ' + $5 + '}}';}
   ;
 
 headerparam
