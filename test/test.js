@@ -100,6 +100,14 @@ describe('Endpoint parsing', function() {
     it('should properly parse api tags ', function() {
         assert.equal(endpoints.fullyPopulated.api, 'private');
     });
+
+    it('should properly parse produces tags ', function() {
+        assert.equal(endpoints.fullyPopulated.produces, 'application/json');
+    });
+
+    it('should properly parse consumes tags ', function() {
+        assert.equal(endpoints.fullyPopulated.consumes, 'application/json');
+    });
 });
 
 describe('Model parsing', function() {

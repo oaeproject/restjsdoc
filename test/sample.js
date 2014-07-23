@@ -51,5 +51,7 @@ var someCode = function(/* comment */) {
  * @FormParam   {string}            var6    A form parameter
  * @FormParam   {string}            [var7]  An optional form parameter [choice1, choice2]
  * @HttpResponse                    404     Custom http response message
+ * @Produces    application/json
+ * @Consumes    application/json
  * @Api private
  */
