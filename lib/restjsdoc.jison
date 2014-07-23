@@ -172,13 +172,13 @@ api
   ;
 
 produces
-  : PRODUCES WORD NEWLINE
-    {$$ = '{"produces": "' + $2 + '"}';}
+  : PRODUCES enum NEWLINE
+    {$$ = '{"produces": ' + $2 + '}';}
   ;
 
 produces
-  : CONSUMES WORD NEWLINE
-    {$$ = '{"consumes": "' + $2 + '"}';}
+  : CONSUMES enum NEWLINE
+    {$$ = '{"consumes": ' + $2 + '}';}
   ;
 
 tag

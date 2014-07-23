@@ -102,11 +102,11 @@ describe('Endpoint parsing', function() {
     });
 
     it('should properly parse produces tags ', function() {
-        assert.equal(endpoints.fullyPopulated.produces, 'application/json');
+        assert.equal(endpoints.fullyPopulated.produces[0], 'application/json');
     });
 
     it('should properly parse consumes tags ', function() {
-        assert.equal(endpoints.fullyPopulated.consumes, 'application/json');
+        assert.equal(endpoints.fullyPopulated.consumes[0], 'application/json');
     });
 });
 
