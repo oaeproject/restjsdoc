@@ -27,6 +27,8 @@
 "@Required"           return 'REQUIRED';
 "@Property"           return 'PROPERTY';
 "@HttpResponse"       return 'HTTPRESP';
+"@Produces"           return 'PRODUCES';
+"@Consumes"           return 'CONSUMES';
 "@Api"                return 'API';
 \S+                   return 'WORD';
 <<EOF>>               return 'EOF';
@@ -169,6 +171,16 @@ api
     {$$ = '{"api": "' + $2 + '"}';}
   ;
 
+produces
+  : PRODUCES WORD NEWLINE
+    {$$ = '{"produces": "' + $2 + '"}';}
+  ;
+
+produces
+  : CONSUMES WORD NEWLINE
+    {$$ = '{"consumes": "' + $2 + '"}';}
+  ;
+
 tag
   : method
   | path
@@ -181,6 +193,8 @@ tag
   | server
   | httpresponse
   | api
+  | produces
+  | consumes
   ;
 
 tags
