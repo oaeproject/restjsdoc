@@ -93,8 +93,8 @@ describe('Endpoint parsing', function() {
     });
 
     it('should properly parse httpResponse tags ', function() {
-        assert.equal(endpoints.fullyPopulated.httpResponses['404'].code, '404');
-        assert.equal(endpoints.fullyPopulated.httpResponses['404'].description, 'Custom http response message');
+        assert.equal(endpoints.fullyPopulated.httpResponses[0].code, '404');
+        assert.equal(endpoints.fullyPopulated.httpResponses[0].message, 'Custom http response message');
     });
 
     it('should properly parse api tags ', function() {
