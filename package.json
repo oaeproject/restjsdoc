@@ -21,7 +21,7 @@
     }
   ],
   "dependencies": {
-    "esprima": "~1.2",
+    "esprima": "latest",
     "jison": "~0.4",
     "underscore": "~1.6"
   },
