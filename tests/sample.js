@@ -8,9 +8,11 @@
  * @PathParam   {string}            var     A variable
  * @Return      {string}                    The result
  */
-var someCode = function(/* comment */) {
-    // This js code should be ignored by the parser
-    var arr = []/* inline block comment also ignored*/;
+// eslint-disable-next-line no-unused-vars
+const someCode = function(/* comment */) {
+  // This js code should be ignored by the parser
+  // eslint-disable-next-line no-unused-vars
+  const arr = []; /* Inline block comment also ignored */
 };
 
 /**
