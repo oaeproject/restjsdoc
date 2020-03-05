@@ -23,7 +23,7 @@
   "dependencies": {
     "esprima": "latest",
     "jison": "~0.4",
-    "underscore": "~1.6"
+    "underscore": "^1.9.2"
   },
   "devDependencies": {
     "grunt": "latest",
